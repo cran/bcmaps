@@ -1,4 +1,13 @@
+# bcmaps 0.17.0
+* Output of `available_layers()` has changed: `shortcut_function` column is now logical, uses better column names, and has a custom print function that gives more information. (#34)
+* Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalites to create a full provincial layer of 'Regional-District-like' polygons.
+* Added Timber Supply Areas and BC cities shortcut function and to `available_layers()`
+* `bec` (and other large downloadable layers) show up in the output of `available_layers()`, `bec()` works, and `get_layer("bec")` works so that getting downloadable datasets is indistinguishable from getting local datasets. (#32)
+* Some utility functions use `sf` functions that have been moved to the `lwgeom` package. They now use the `lwgeom` function (Fixes CRAN CHECK NOTE; #33).
+* Added new layer: `bc_cities()` which is a point layer of B.C.'s major cities.
+
 # bcmaps 0.16.0
+* First release to CRAN
 * Added two new functions: `raster_by_poly` to overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer and clip the raster to each polygon, and `summarize_raster_list` to summarize the results of `raster_to_poly`
 
 # bcmaps 0.15.1
