@@ -1,3 +1,6 @@
+# bcmaps v0.17.1
+* Fixed an issue where `self_union()` would fail due to a change in the `raster` package (30cef3438)
+
 # bcmaps 0.17.0
 * Output of `available_layers()` has changed: `shortcut_function` column is now logical, uses better column names, and has a custom print function that gives more information. (#34)
 * Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalites to create a full provincial layer of 'Regional-District-like' polygons.
