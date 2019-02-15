@@ -1,5 +1,5 @@
 ## ----options, include=FALSE----------------------------------------------
-knitr::opts_chunk$set(eval = requireNamespace("bcmaps.rdata", quietly = TRUE),
+knitr::opts_chunk$set(eval = requireNamespace("bcmapsdata", quietly = TRUE),
                       fig.width = 7, fig.height = 7)
 
 ## ----message=FALSE-------------------------------------------------------

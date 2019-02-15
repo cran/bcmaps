@@ -1,9 +1,16 @@
+# bcmaps 0.18.0
+* Added `bc_neighbours()` function to call layers containing adjacent jurisdictions.
+* Ensured the `geometry` column in all layers is consistently named `"geometry"` (Thanks @boshek)
+* Moving sf package to Depends to take advantage of sf print methods.
+* Added `bc_bbox()` to get a bounding box for British Columbia (#40).
+* All references to external data package now point to `bcmapsdata` because of this R bug (https://bugs.r-project.org/bugzilla/show_bug.cgi?id=17520)
+
 # bcmaps v0.17.1
 * Fixed an issue where `self_union()` would fail due to a change in the `raster` package (30cef3438)
 
 # bcmaps 0.17.0
 * Output of `available_layers()` has changed: `shortcut_function` column is now logical, uses better column names, and has a custom print function that gives more information. (#34)
-* Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalites to create a full provincial layer of 'Regional-District-like' polygons.
+* Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalities to create a full provincial layer of 'Regional-District-like' polygons.
 * Added Timber Supply Areas and BC cities shortcut function and to `available_layers()`
 * `bec` (and other large downloadable layers) show up in the output of `available_layers()`, `bec()` works, and `get_layer("bec")` works so that getting downloadable datasets is indistinguishable from getting local datasets. (#32)
 * Some utility functions use `sf` functions that have been moved to the `lwgeom` package. They now use the `lwgeom` function (Fixes CRAN CHECK NOTE; #33).
@@ -64,7 +71,7 @@ functions (E.g., `bc_bound(class = "sp")` or `get_layer("bc_bound", class = "sp"
 
 # bcmaps 0.10.1
 
-* Fixed ring self-intersctions in `bc_bound_hres` and `airzones` (#13)
+* Fixed ring self-intersections in `bc_bound_hres` and `airzones` (#13)
 
 # bcmaps 0.10.0
 
