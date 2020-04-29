@@ -3,16 +3,18 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 0.18.0
+### Version 0.18.1
+
+<!-- badges: start -->
 
 [![dev](https://assets.bcdevexchange.org/images/badges/delivery.svg)](https://github.com/BCDevExchange/assets/blob/master/README.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Travis-CI Build
-Status](http://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
-
+[![R build
+status](https://github.com/bcgov/bcmaps/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcmaps/actions)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
 [![CRAN
 Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps)
+<!-- badges: end -->
 
 ## Overview
 
@@ -67,7 +69,7 @@ To see the layers that are available, run the `available_layers()`
 function:
 
     #> Loading required package: sf
-    #> Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3
+    #> Linking to GEOS 3.8.1, GDAL 2.4.4, PROJ 7.0.0
 
 ``` r
 library(bcmaps)
@@ -180,11 +182,8 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 
 ### Vignettes
 
-We have written a short vignette on plotting points on one of the layers
-from `bcmaps`. You can view the vignette online
-[here](https://cran.r-project.org/web/packages/bcmaps/vignettes/add_points.html)
-or if you installed the package you can open it using
-`browseVignettes("bcmaps")`.
+After installing the package you can view vignettes by typing
+`browseVignettes("bcmaps")` in your R session.
 
 ### Utility Functions
 
@@ -206,11 +205,12 @@ To report bugs/issues/feature requests, please file an
 
 Pull requests of new B.C. layers are welcome. If you would like to
 contribute to the package, please see our
-[CONTRIBUTING](CONTRIBUTING.md) guidelines.
+[CONTRIBUTING](https://github.com/bcgov/bcmaps/blob/master/CONTRIBUTING.md)
+guidelines.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
-to abide by its terms.
+Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.
 
 ## Source Data
 
