@@ -2,7 +2,7 @@
 % Please edit documentation in R/raster_by_poly.R
 \name{raster_by_poly}
 \alias{raster_by_poly}
-\title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+\title{Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
 and clip the raster to each polygon. Optionally done in parallel}
 \usage{
 raster_by_poly(
@@ -10,10 +10,7 @@ raster_by_poly(
   poly,
   poly_field,
   summarize = FALSE,
-  parallel = FALSE,
-  future_strategy = NULL,
-  workers = NULL,
-  ...
+  parallel = FALSE
 )
 }
 \arguments{
@@ -26,23 +23,15 @@ raster_by_poly(
 \item{summarize}{Should the function summarise the raster values in each
 polygon to a vector? Default \code{FALSE}}
 
-\item{parallel}{process in parallel? Default \code{FALSE}.}
-
-\item{future_strategy}{the strategy to use in \code{\link[future:plan]{future::plan()}} for parallel
-computation. Default \code{NULL} respects if user has already set a plan using
-\code{\link[future:plan]{future::plan()}} or an \link[future:future.options]{option},
-otherwise uses \code{"multiprocess"}.}
-
-\item{workers}{number of workers if doing parallel. Default \code{NULL} uses the
-default of the future strategy chosen (usually \code{\link[future:availableCores]{future::availableCores()}}).}
-
-\item{...}{passed on to \code{\link[future:plan]{future::plan()}}}
+\item{parallel}{process in parallel? Default \code{FALSE}. If \code{TRUE}, it is up to
+the user to call \code{\link[future:plan]{future::plan()}} (or set \link[future:future.options]{options})
+to specify what parallel strategy to use.}
 }
 \value{
 a list of \code{RasterLayers} if \code{summarize = FALSE} otherwise a list of
 vectors.
 }
 \description{
-Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
 and clip the raster to each polygon. Optionally done in parallel
 }

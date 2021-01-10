@@ -14,7 +14,7 @@
 #'
 #' Total area, Land area only, or Freshwater area only, in the units of your choosing.
 #'
-#' The sizes are from \href{http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/phys01-eng.htm}{Statistics Canada}
+#' The sizes are from \href{https://www150.statcan.gc.ca/cgi-bin/tableviewer.pl?page=l01/cst01/phys01-eng.htm}{Statistics Canada}
 #'
 #' @param what Which part of BC? One of `'total'` (default), `'land'`, or `'freshwater'`.
 #' @param units One of `'km2'` (square kilometres; default), `'m2'` (square metres),
@@ -352,7 +352,7 @@ ask <- function(...) {
 #'
 #' @examples
 #' \dontrun{
-#' if (require("bcmapsdata") && #' require(sf) && require(ggplot2)) {
+#' if (require(sf) && require(ggplot2)) {
 #'  bec <- bec()
 #'  ggplot() +
 #'    geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
@@ -387,11 +387,11 @@ bec_colors <- bec_colours
 #' @export
 #'
 #' @examples
-#' if (requireNamespace("bcmapsdata", quietly = TRUE)) {
+#'\dontrun{
 #'   bc_bbox("sf")
 #'   bc_bbox("sp")
 #'   bc_bbox("raster")
-#' }
+#'   }
 bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   class <- match.arg(class)
 
@@ -430,5 +430,65 @@ make_valid <- function(x) {
 }
 
 old_sf_geos <- function() {
-  unname(numeric_version(sf::sf_extSoftVersion()["GEOS"]) < numeric_version("3.8"))
+  geos_ver <- clean_geos_version()
+  unname(numeric_version(geos_ver) < numeric_version("3.8"))
+}
+
+clean_geos_version <- function(geos_version = sf::sf_extSoftVersion()["GEOS"]) {
+  # replace non-numeric version components with 9999 (eg. "dev")
+  geos_version <- gsub("[-.]?([^0-9.-])+[-.]?", "-9999-", geos_version)
+  # remove trailing "-"
+  gsub("-$", "", geos_version)
+}
+
+make_bcdata_fn <- function(fn_title) {
+  layers <- shortcut_layers()
+  fn_meta <- layers[layers$title == fn_title$title,]
+  glue::glue("bcdc_get_data(record = '{fn_meta$record}', resource = '{fn_meta$resource}')")
+}
+
+
+update_message_once <- function(...) {
+  silence <- isTRUE(getOption("silence_update_message"))
+  messaged <- bcmaps_env$bcmaps_update_message
+  if (!silence && !messaged) {
+    message(...)
+    assign("bcmaps_update_message", TRUE, envir = bcmaps_env)
+  }
+}
+
+dem_to_tif <- function(dem_file) {
+  trans <- vapply(dem_file, function(x) {
+    sf::gdal_utils(util = "translate",
+                   source = x,
+                   destination = paste0(tools::file_path_sans_ext(x),".tif"),
+                   options = c("-ot","Int16","-of", "GTiff"))
+  }, FUN.VALUE = logical(1), USE.NAMES = FALSE)
+
+  unlink(dem_file)
+  paste0(tools::file_path_sans_ext(dem_file),".tif")
+
+}
+
+
+convert_to_sf <- function(obj) {
+  UseMethod("convert_to_sf")
+}
+
+convert_to_sf.sf <- function(obj) {
+  obj
+}
+convert_to_sf.sfc <- convert_to_sf.sf
+convert_to_sf.Spatial <- function(obj) {
+  sf::st_as_sf(obj)
+}
+
+convert_to_sf.Raster <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
+}
+
+convert_to_sf.stars <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
 }

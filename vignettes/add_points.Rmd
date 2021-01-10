@@ -7,13 +7,13 @@ output:
     fig_width: 5
     fig_height: 5
 vignette: >
-  %\VignetteIndexEntry{bcmaps layers and point data}
+  %\VignetteIndexEntry{Working with bcmaps layers with point location data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r options, include=FALSE}
-knitr::opts_chunk$set(eval = requireNamespace("bcmapsdata", quietly = TRUE),
+knitr::opts_chunk$set(eval = TRUE,
                       fig.width = 7, fig.height = 7)
 ```
 
@@ -50,7 +50,7 @@ summary(spp)
 plot(spp["spp_present"])
 ```
 
-In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf.
+In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them [here]( https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf).
 
 We know that our occurrence data are in decimal degrees in [NAD83](https://epsg.io/4269), so we will assign the corresponding `proj4string`. You can specify the projection using a full proj4 string (`"+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"`) or the EPSG code (4269). We will use the EPSG code because it's shorter and less likely to make a typo with.
 
@@ -63,8 +63,8 @@ All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005]
 If we look at the `proj4string` for `bc_bound` and our `spp_df`, we see that they are different:
 
 ```{r collapse=TRUE}
-bc_bound <- get_layer("bc_bound")
-st_crs(bc_bound)
+bc_bound_data <- bc_bound()
+st_crs(bc_bound_data)
 st_crs(spp)
 ```
 
@@ -78,7 +78,7 @@ Now we can overlay the points on the provincial boundary dataset:
 
 ```{r fig.height=4, fig.width=6, warning=FALSE}
 plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
-plot(st_geometry(bc_bound), add = TRUE)
+plot(st_geometry(bc_bound_data), add = TRUE)
 ```
 
 Now we want to know what ecoregion of the province each of these observations

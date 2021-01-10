@@ -1,5 +1,5 @@
 ## ----options, include=FALSE---------------------------------------------------
-knitr::opts_chunk$set(eval = requireNamespace("bcmapsdata", quietly = TRUE),
+knitr::opts_chunk$set(eval = TRUE,
                       fig.width = 7, fig.height = 7)
 
 ## ----message=FALSE------------------------------------------------------------
@@ -22,8 +22,8 @@ plot(spp["spp_present"])
 spp <- st_set_crs(spp, 4326)
 
 ## ----collapse=TRUE------------------------------------------------------------
-bc_bound <- get_layer("bc_bound")
-st_crs(bc_bound)
+bc_bound_data <- bc_bound()
+st_crs(bc_bound_data)
 st_crs(spp)
 
 ## -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ spp <- transform_bc_albers(spp)
 
 ## ----fig.height=4, fig.width=6, warning=FALSE---------------------------------
 plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
-plot(st_geometry(bc_bound), add = TRUE)
+plot(st_geometry(bc_bound_data), add = TRUE)
 
 ## -----------------------------------------------------------------------------
 ecoreg <- ecoregions()

@@ -1,4 +1,4 @@
-# Copyright 2019 Province of British Columbia
+# Copyright 2020 Province of British Columbia
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -15,84 +15,14 @@
 # bcmaps:::make_shortcuts(). Do not edit by hand.
 #############################################################
 
-#' British Columbia Air Zones
+#' BC Major Cities Points
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `airzones` in the desired class
-#'
-#' @details Type `?bcmapsdata::airzones` for details.
-#'
-#' 
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- airzones()
-#' my_layer_sp <- airzones(class = 'sp')
-#' }
-#'
-#' @export
-airzones <- function(class = 'sf') {
-   get_layer('airzones', class = class)
-}
-
-#' BC Boundary
-#'
-#' You must have the `bcmapsdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `bc_bound` in the desired class
-#'
-#' @details Type `?bcmapsdata::bc_bound` for details.
-#'
-#' 
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- bc_bound()
-#' my_layer_sp <- bc_bound(class = 'sp')
-#' }
-#'
-#' @export
-bc_bound <- function(class = 'sf') {
-   get_layer('bc_bound', class = class)
-}
-
-#' BC Boundary - High Resolution
-#'
-#' You must have the `bcmapsdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `bc_bound_hres` in the desired class
-#'
-#' @details Type `?bcmapsdata::bc_bound_hres` for details.
-#'
-#' 
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- bc_bound_hres()
-#' my_layer_sp <- bc_bound_hres(class = 'sp')
-#' }
-#'
-#' @export
-bc_bound_hres <- function(class = 'sf') {
-   get_layer('bc_bound_hres', class = class)
-}
-
-#' BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
-#'
-#' You must have the `bcmapsdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `bc_cities` in the desired class
 #'
-#' @details Type `?bcmapsdata::bc_cities` for details.
+#' @source `bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')`
 #'
 #' 
 #'
@@ -103,42 +33,40 @@ bc_bound_hres <- function(class = 'sf') {
 #' }
 #'
 #' @export
-bc_cities <- function(class = 'sf') {
-   get_layer('bc_cities', class = class)
+bc_cities <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('bc_cities', class = class, ask = ask, force = force)
 }
 
-#' Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia
+#' British Columbia Air Zones
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `bc_neighbours` in the desired class
+#' @return The spatial layer of `airzones` in the desired class
 #'
-#' @details Type `?bcmapsdata::bc_neighbours` for details.
+#' @source `bcdata::bcdc_get_data(record = 'e8eeefc4-2826-47bc-8430-85703d328516', resource = 'c495d082-b586-4df0-9e06-bd6b66a8acd9')`
 #'
 #' 
 #'
 #' @examples
 #' \dontrun{
-#' my_layer <- bc_neighbours()
-#' my_layer_sp <- bc_neighbours(class = 'sp')
+#' my_layer <- airzones()
+#' my_layer_sp <- airzones(class = 'sp')
 #' }
 #'
 #' @export
-bc_neighbours <- function(class = 'sf') {
-   get_layer('bc_neighbours', class = class)
+airzones <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('airzones', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Ecoprovinces
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `ecoprovinces` in the desired class
 #'
-#' @details Type `?bcmapsdata::ecoprovinces` for details.
+#' @source `bcdata::bcdc_get_data(record = '51832f47-efdf-4956-837a-45fc2c9032dd', resource = '811fcedb-1a53-4574-8149-454f4a740682')`
 #'
 #' 
 #'
@@ -149,19 +77,18 @@ bc_neighbours <- function(class = 'sf') {
 #' }
 #'
 #' @export
-ecoprovinces <- function(class = 'sf') {
-   get_layer('ecoprovinces', class = class)
+ecoprovinces <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ecoprovinces', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Ecoregions
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `ecoregions` in the desired class
 #'
-#' @details Type `?bcmapsdata::ecoregions` for details.
+#' @source `bcdata::bcdc_get_data(record = 'd00389e0-66da-4895-bd56-39a0dd64aa78', resource = 'bd816a86-4f5e-4989-b1df-0b2f3f4a5f86')`
 #'
 #' 
 #'
@@ -172,19 +99,18 @@ ecoprovinces <- function(class = 'sf') {
 #' }
 #'
 #' @export
-ecoregions <- function(class = 'sf') {
-   get_layer('ecoregions', class = class)
+ecoregions <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ecoregions', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Ecosections
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `ecosections` in the desired class
 #'
-#' @details Type `?bcmapsdata::ecosections` for details.
+#' @source `bcdata::bcdc_get_data(record = 'ccc01f43-860d-4583-8ba4-e72d8379441e', resource = '6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6')`
 #'
 #' 
 #'
@@ -195,19 +121,18 @@ ecoregions <- function(class = 'sf') {
 #' }
 #'
 #' @export
-ecosections <- function(class = 'sf') {
-   get_layer('ecosections', class = class)
+ecosections <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ecosections', class = class, ask = ask, force = force)
 }
 
 #' British Columbia's developed ground water aquifers
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `gw_aquifers` in the desired class
 #'
-#' @details Type `?bcmapsdata::gw_aquifers` for details.
+#' @source `bcdata::bcdc_get_data(record = '099d69c5-1401-484d-9e19-c121ccb7977c', resource = '8f421e3a-ccd3-4fab-8198-53ad6e9e2af2')`
 #'
 #' 
 #'
@@ -218,19 +143,18 @@ ecosections <- function(class = 'sf') {
 #' }
 #'
 #' @export
-gw_aquifers <- function(class = 'sf') {
-   get_layer('gw_aquifers', class = class)
+gw_aquifers <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('gw_aquifers', class = class, ask = ask, force = force)
 }
 
 #' Hydrologic Zone Boundaries of British Columbia
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `hydrozones` in the desired class
 #'
-#' @details Type `?bcmapsdata::hydrozones` for details.
+#' @source `bcdata::bcdc_get_data(record = '329fd234-8835-4d44-9aaa-97c37bfc8d92', resource = 'baeb665e-85c7-4a7b-8e67-8b956785490a')`
 #'
 #' 
 #'
@@ -241,19 +165,18 @@ gw_aquifers <- function(class = 'sf') {
 #' }
 #'
 #' @export
-hydrozones <- function(class = 'sf') {
-   get_layer('hydrozones', class = class)
+hydrozones <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('hydrozones', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Municipalities
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `municipalities` in the desired class
 #'
-#' @details Type `?bcmapsdata::municipalities` for details.
+#' @source `bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')`
 #'
 #' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
 #'
@@ -264,19 +187,18 @@ hydrozones <- function(class = 'sf') {
 #' }
 #'
 #' @export
-municipalities <- function(class = 'sf') {
-   get_layer('municipalities', class = class)
+municipalities <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('municipalities', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Areas
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `nr_areas` in the desired class
 #'
-#' @details Type `?bcmapsdata::nr_areas` for details.
+#' @source `bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')`
 #'
 #' 
 #'
@@ -287,19 +209,18 @@ municipalities <- function(class = 'sf') {
 #' }
 #'
 #' @export
-nr_areas <- function(class = 'sf') {
-   get_layer('nr_areas', class = class)
+nr_areas <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('nr_areas', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Districts
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `nr_districts` in the desired class
 #'
-#' @details Type `?bcmapsdata::nr_districts` for details.
+#' @source `bcdata::bcdc_get_data(record = '0bc73892-e41f-41d0-8d8e-828c16139337', resource = 'e6676e55-2a6f-4b2b-91ad-3caf291ac5d4')`
 #'
 #' 
 #'
@@ -310,19 +231,18 @@ nr_areas <- function(class = 'sf') {
 #' }
 #'
 #' @export
-nr_districts <- function(class = 'sf') {
-   get_layer('nr_districts', class = class)
+nr_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('nr_districts', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Regions
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `nr_regions` in the desired class
 #'
-#' @details Type `?bcmapsdata::nr_regions` for details.
+#' @source `bcdata::bcdc_get_data(record = 'dfc492c0-69c5-4c20-a6de-2c9bc999301f', resource = 'ec636f64-9c5f-4704-8e66-2dd43032c9b5')`
 #'
 #' 
 #'
@@ -333,19 +253,18 @@ nr_districts <- function(class = 'sf') {
 #' }
 #'
 #' @export
-nr_regions <- function(class = 'sf') {
-   get_layer('nr_regions', class = class)
+nr_regions <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('nr_regions', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Regional Districts
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `regional_districts` in the desired class
 #'
-#' @details Type `?bcmapsdata::regional_districts` for details.
+#' @source `bcdata::bcdc_get_data(record = 'd1aff64e-dbfe-45a6-af97-582b7f6418b9', resource = '57c7f719-dc87-415c-8be7-ef2f95289397')`
 #'
 #' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
 #'
@@ -356,19 +275,18 @@ nr_regions <- function(class = 'sf') {
 #' }
 #'
 #' @export
-regional_districts <- function(class = 'sf') {
-   get_layer('regional_districts', class = class)
+regional_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('regional_districts', class = class, ask = ask, force = force)
 }
 
 #' British Columbia's Water Management Districts
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `water_districts` in the desired class
 #'
-#' @details Type `?bcmapsdata::water_districts` for details.
+#' @source `bcdata::bcdc_get_data(record = '92cb3ad8-9582-48a9-9e79-9a9d33601e50', resource = '07f9aa3f-0b66-4a49-919f-332d12bcd8f0')`
 #'
 #' 
 #'
@@ -379,19 +297,18 @@ regional_districts <- function(class = 'sf') {
 #' }
 #'
 #' @export
-water_districts <- function(class = 'sf') {
-   get_layer('water_districts', class = class)
+water_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('water_districts', class = class, ask = ask, force = force)
 }
 
 #' British Columbia's Water Management Precincts
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `water_precincts` in the desired class
 #'
-#' @details Type `?bcmapsdata::water_precincts` for details.
+#' @source `bcdata::bcdc_get_data(record = 'b5f436b4-532c-4ee2-ba27-90d55ec8c73f', resource = 'e482fd4a-be58-4541-8e0d-c39a764fd0a3')`
 #'
 #' 
 #'
@@ -402,65 +319,18 @@ water_districts <- function(class = 'sf') {
 #' }
 #'
 #' @export
-water_precincts <- function(class = 'sf') {
-   get_layer('water_precincts', class = class)
-}
-
-#' British Columbia watercourses at 1:15M scale
-#'
-#' You must have the `bcmapsdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `watercourses_15M` in the desired class
-#'
-#' @details Type `?bcmapsdata::watercourses_15M` for details.
-#'
-#' 
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- watercourses_15M()
-#' my_layer_sp <- watercourses_15M(class = 'sp')
-#' }
-#'
-#' @export
-watercourses_15M <- function(class = 'sf') {
-   get_layer('watercourses_15M', class = class)
-}
-
-#' British Columbia watercourses at 1:5M scale
-#'
-#' You must have the `bcmapsdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `watercourses_5M` in the desired class
-#'
-#' @details Type `?bcmapsdata::watercourses_5M` for details.
-#'
-#' 
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- watercourses_5M()
-#' my_layer_sp <- watercourses_5M(class = 'sp')
-#' }
-#'
-#' @export
-watercourses_5M <- function(class = 'sf') {
-   get_layer('watercourses_5M', class = class)
+water_precincts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('water_precincts', class = class, ask = ask, force = force)
 }
 
 #' Water Survey of Canada Sub-Sub-Drainage Areas
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `wsc_drainages` in the desired class
 #'
-#' @details Type `?bcmapsdata::wsc_drainages` for details.
+#' @source `bcdata::bcdc_get_data(record = '7ae18a3c-917b-4cb1-9aa8-51a172475dbb', resource = '4455072e-d33b-4685-9edd-cffda763dd45')`
 #'
 #' 
 #'
@@ -471,6 +341,160 @@ watercourses_5M <- function(class = 'sf') {
 #' }
 #'
 #' @export
-wsc_drainages <- function(class = 'sf') {
-   get_layer('wsc_drainages', class = class)
+wsc_drainages <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('wsc_drainages', class = class, ask = ask, force = force)
+}
+
+#' Health Service Delivery Area Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `health_hsda` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '71c930b9-563a-46da-a10f-ead49ccbc390', resource = 'c5dad467-229b-4378-852b-ff92479a65b6')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- health_hsda()
+#' my_layer_sp <- health_hsda(class = 'sp')
+#' }
+#'
+#' @export
+health_hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_hsda', class = class, ask = ask, force = force)
+}
+
+#' Health Authority Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `health_ha` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b', resource = '93b79a3c-2da4-4fd4-b953-2f5c690db430')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- health_ha()
+#' my_layer_sp <- health_ha(class = 'sp')
+#' }
+#'
+#' @export
+health_ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_ha', class = class, ask = ask, force = force)
+}
+
+#' Local Health Area Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `health_lha` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'afd021d9-7722-4410-b506-d394c66e74fc', resource = 'd6e951d3-5103-475a-8bb6-b4d275e6343f')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- health_lha()
+#' my_layer_sp <- health_lha(class = 'sp')
+#' }
+#'
+#' @export
+health_lha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_lha', class = class, ask = ask, force = force)
+}
+
+#' Community Health Service Areas - CHSA
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `health_chsa` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '68f2f577-28a7-46b4-bca9-7e9770f2f357', resource = '59065b51-511a-4976-b77f-034168365273')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- health_chsa()
+#' my_layer_sp <- health_chsa(class = 'sp')
+#' }
+#'
+#' @export
+health_chsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_chsa', class = class, ask = ask, force = force)
+}
+
+#' Current Census Subdivision Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_subdivision` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '4c5618c6-38dd-4a62-a3de-9408b4974bb6', resource = '98bd1222-57bb-4504-92c2-4a5857ae7671')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_subdivision()
+#' my_layer_sp <- census_subdivision(class = 'sp')
+#' }
+#'
+#' @export
+census_subdivision <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_subdivision', class = class, ask = ask, force = force)
+}
+
+#' Current Census Division Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_division` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'ef17918a-597a-4012-8534-f8e71d8735b3', resource = '36b530c2-1de6-44a2-a6f6-c1fce36c53ed')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_division()
+#' my_layer_sp <- census_division(class = 'sp')
+#' }
+#'
+#' @export
+census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_division', class = class, ask = ask, force = force)
+}
+
+#' Current Census Economic Region Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_economic` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '1aebc451-a41c-496f-8b18-6f414cde93b7', resource = '3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_economic()
+#' my_layer_sp <- census_economic(class = 'sp')
+#' }
+#'
+#' @export
+census_economic <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_economic', class = class, ask = ask, force = force)
 }
