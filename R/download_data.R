@@ -102,6 +102,8 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
 
   ret <- readRDS(fpath)
 
+  # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
+  # in a format usable by that stack
   ret <- set_bc_albers(ret)
 
   if (class == "sp") {
@@ -111,8 +113,15 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
 }
 
 data_dir <- function() {
-  getOption("bcmaps.data_dir", default = rappdirs::user_data_dir("bcmaps"))
+  # Use tools::R_user_dir on R >= 4.0, rappdirs otherwise.
+  R_user_dir <- getNamespace("tools")$R_user_dir
+  if (!is.null(R_user_dir)) {
+    getOption("bcmaps.data_dir", default = R_user_dir("bcmaps", "cache"))
+  } else {
+    getOption("bcmaps.data_dir", default = rappdirs::user_cache_dir("bcmaps"))
+  }
 }
+
 
 check_write_to_data_dir <- function(dir, ask) {
 

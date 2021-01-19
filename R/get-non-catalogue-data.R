@@ -165,8 +165,11 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @export
 mapsheets_250K <- function(class = 'sf') {
 
-
   ret <- mapsheets_250K_data
+
+  # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
+  # in a format usable by that stack
+  ret <- set_bc_albers(ret)
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
@@ -192,8 +195,10 @@ mapsheets_250K <- function(class = 'sf') {
 #' @export
 mapsheets_50K <- function(class = 'sf') {
 
-
   ret <- mapsheets_50K_data
+  # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
+  # in a format usable by that stack
+  ret <- set_bc_albers(ret)
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
