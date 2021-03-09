@@ -1,11 +1,11 @@
-95638062c50704e023f3226c1a59ff28 *DESCRIPTION
+cada4d951e8371f72d131b4aef979cf9 *DESCRIPTION
 136e4f49dbf29942c572a3a8f6e88a77 *LICENSE
 6b932df0ab8932a4e25257b23412c0c4 *NAMESPACE
-feb00f8cca477add572889ed8e10659b *NEWS.md
+ca285aa3df12601fae8e943d0d3fd0fd *NEWS.md
 43fdd636d9a404b7ae3eaa814ac982b4 *R/bc_bound.R
 1ee959e2f0b2830b5b8a13fdd374ccfd *R/bcmaps.R
-3efa6c49dd05f40e31d6c3ea14f408c5 *R/cache-utils.R
-c612f7e49e3d1095197041c4d65b2893 *R/cded.R
+88e08dc55aa03d5c44b96d1ff8afd147 *R/cache-utils.R
+7442b9aff9be3fe475d211748ed49d1f *R/cded.R
 9790ca379cc0568aa14494d798deb1b6 *R/download_data.R
 2df35d592ab4137f7425f99e90bd2956 *R/get-non-catalogue-data.R
 89a0ee47f0a967c984408868d25b34c1 *R/get_data.R
@@ -16,10 +16,10 @@ c612f7e49e3d1095197041c4d65b2893 *R/cded.R
 7e90bffd2c63122c48f6518d017a7f8f *R/sysdata.rda
 c90c1b1bfffc10e43987798f3bbcd455 *R/utils.R
 5a514c73021bf21d8dc8581dbde80eae *R/zzz.R
-19319349f99770742d57f96a6f54aec9 *README.md
-60e58e25be6e17d4bb46d6cb1760af2a *build/vignette.rds
+ebf6e0dda1f221a471be497069fa72e0 *README.md
+38fec0fa6b6ea383547cf40a16bbfee8 *build/vignette.rds
 275daaf208558373154f0fe32474d515 *inst/doc/add_points.Rmd
-ce4f325e8263501cf6e22fe9efd6167c *inst/doc/add_points.html
+b66b07291b75ebef4679fb2cfc35011e *inst/doc/add_points.html
 fde6fa2258bd56cce553d658bf2520d7 *man/add_license_header.Rd
 b00be490c86b170524b3b52ad3d2d8b3 *man/airzones.Rd
 4e293b34968df223111c76461c01b11a *man/available_layers.Rd
@@ -42,7 +42,7 @@ e1b65afaadc3ec312e7d3d5d4e8ccf25 *man/census_metropolitan_area.Rd
 0f8d1f4a816e0e5fce52eefbf3633ba1 *man/census_subdivision.Rd
 47aa0fd7bfb357f9a80a36b1fb35fb66 *man/census_tract.Rd
 78af0e405ee73db7177841d91aa944d8 *man/combine_nr_rd.Rd
-9eeb65c771be5a921d0541113e33c287 *man/delete_cache.Rd
+68ea918caadd48582f5ed1b5f3a49c32 *man/delete_cache.Rd
 321e0017f9f3de7f4a9c16a7d8933e21 *man/ecoprovinces.Rd
 4b31064be0f7e5f4075263cbdf6b655b *man/ecoregions.Rd
 cf4449338b342271101b286e40ba500f *man/ecosections.Rd
@@ -81,7 +81,7 @@ cd149f9d46f932f105491563d7429850 *tests/testthat.R
 0894fb42841ef60ee8300d2e23e04f0e *tests/testthat/helper.R
 4e1f10c9e6f6870edf8d1ca123dee183 *tests/testthat/setup.R
 b18d81c9061deb8a69c558cc42fa8eb9 *tests/testthat/teardown.R
-1db465065a0377370d6d636ffd25dc7c *tests/testthat/test-cache-utils.R
+8e9c2f0210089251df7900ad69118d50 *tests/testthat/test-cache-utils.R
 cd63b856536077106a5dde077017030f *tests/testthat/test-cded.R
 e4d39ed0079c3f83254de34356502703 *tests/testthat/test-data_functions.R
 fd569de655db3996f3f65eb7ef19f1f6 *tests/testthat/test-fix_geo_problems.R
@@ -90,7 +90,7 @@ ca07b144f18432d2732511af0ed95544 *tests/testthat/test-get_poly_attribute.R
 d55a15f3edc27c4eb029f570c4610b60 *tests/testthat/test-raster_by_poly.R
 ad809426dd4b649c7d8fc664fdff4a10 *tests/testthat/test-self_union.R
 77d94dfc0398e783c9ffc2837dce2930 *tests/testthat/test-utils.R
-ad580abed0a34c1cfcadf63012faf878 *tools/readme/bc_neighbours-1.png
+db39763f99463f340dbcc2f017ca49b9 *tools/readme/bc_neighbours-1.png
 cb32ec0a1f96027d534bc980c5ae16e7 *tools/readme/bcmaps-sticker.png
 c99340e1d6488fbede6ed267473620bd *tools/readme/bec-1.png
 292735af8b6112ae1d9936f05352564f *tools/readme/cded-1.png
