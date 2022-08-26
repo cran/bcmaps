@@ -3,7 +3,7 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 1.0.2
+### Version 1.0.2.9000
 
 <!-- badges: start -->
 
@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![R build
 status](https://github.com/bcgov/bcmaps/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcmaps/actions)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
 [![CRAN
 Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps)
 <!-- badges: end -->
@@ -144,8 +144,9 @@ accompanying function `bec_colours()` function to colour it:
 ``` r
 bec <- bec()
 library(ggplot2)
+bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
 ggplot() +
-  geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+  geom_sf(data = bec_sub,
           aes(fill = ZONE, col = ZONE)) +
   scale_fill_manual(values = bec_colors()) +
   scale_colour_manual(values = bec_colours())
