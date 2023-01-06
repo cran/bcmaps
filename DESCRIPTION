@@ -1,10 +1,24 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 1.0.3
-Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
-  role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
-  role = "aut"), person("Sam", "Albers", email = "sam.albers@gov.bc.ca", role = "aut"),
-  person("Province of British Columbia", role="cph"))
+Version: 1.1.0
+Authors@R: 
+    c(person(given = "Andy",
+             family = "Teucher",
+             role = c("aut", "cre"),
+             email = "andy.teucher@gmail.com",
+             comment = c(ORCID = "0000-0002-7840-692X")),
+      person(given = "Sam",
+             family = "Albers",
+             role = c("aut", "ctb"),
+             email = "sam.albers@gmail.com",
+             comment = c(ORCID = "0000-0002-9270-7884")),
+      person(given = "Stephanie",
+             family = "Hazlitt",
+             role = c("aut", "ctb"),
+             email = "stephhazlitt@gmail.com",
+             comment = c(ORCID = "0000-0002-3161-2304")),
+      person(given = "Province of British Columbia",
+             role = "cph"))
 Description: Provides access to various spatial layers for B.C., such as 
     administrative boundaries, natural resource management boundaries, etc. 
     Most layers are imported from the 'bcdata' package as 'sf' or 'Spatial' objects
@@ -23,11 +37,11 @@ VignetteBuilder: knitr
 RoxygenNote: 7.2.1
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-08-26 05:51:35 UTC; ateucher
-Author: Andy Teucher [aut, cre],
-  Stephanie Hazlitt [aut],
-  Sam Albers [aut],
+Packaged: 2023-01-06 21:34:59 UTC; ateucher
+Author: Andy Teucher [aut, cre] (<https://orcid.org/0000-0002-7840-692X>),
+  Sam Albers [aut, ctb] (<https://orcid.org/0000-0002-9270-7884>),
+  Stephanie Hazlitt [aut, ctb] (<https://orcid.org/0000-0002-3161-2304>),
   Province of British Columbia [cph]
-Maintainer: Andy Teucher <andy.teucher@gov.bc.ca>
+Maintainer: Andy Teucher <andy.teucher@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-08-26 11:04:34 UTC
+Date/Publication: 2023-01-07 00:10:09 UTC
