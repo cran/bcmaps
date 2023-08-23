@@ -7,19 +7,15 @@
 \code{bcdata::bcdc_get_data(record = '7ae18a3c-917b-4cb1-9aa8-51a172475dbb', resource = '4455072e-d33b-4685-9edd-cffda763dd45')}
 }
 \usage{
-wsc_drainages(class = deprecated(), ask = interactive(), force = FALSE)
+wsc_drainages(ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
-
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
 \item{force}{Should you force download the data?}
 }
 \value{
-The spatial layer of \code{wsc_drainages} in the desired class
+The spatial layer of \code{wsc_drainages} as an \code{sf} object.
 }
 \description{
 Water Survey of Canada Sub-Sub-Drainage Areas
@@ -30,3 +26,40 @@ my_layer <- wsc_drainages()
 }
 
 }
+\seealso{
+Other BC layers: 
+\code{\link{airzones}()},
+\code{\link{bc_bound_hres}()},
+\code{\link{bc_bound}()},
+\code{\link{bc_cities}()},
+\code{\link{bec}()},
+\code{\link{census_dissemination_area}()},
+\code{\link{census_division}()},
+\code{\link{census_economic}()},
+\code{\link{census_metropolitan_area}()},
+\code{\link{census_subdivision}()},
+\code{\link{census_tract}()},
+\code{\link{ecoprovinces}()},
+\code{\link{ecoregions}()},
+\code{\link{ecosections}()},
+\code{\link{fsa}()},
+\code{\link{gw_aquifers}()},
+\code{\link{health_chsa}()},
+\code{\link{health_ha}()},
+\code{\link{health_hsda}()},
+\code{\link{health_lha}()},
+\code{\link{hydrozones}()},
+\code{\link{mapsheets_250K}()},
+\code{\link{mapsheets_50K}()},
+\code{\link{municipalities}()},
+\code{\link{nr_areas}()},
+\code{\link{nr_districts}()},
+\code{\link{nr_regions}()},
+\code{\link{regional_districts}()},
+\code{\link{tsa}()},
+\code{\link{water_districts}()},
+\code{\link{water_precincts}()},
+\code{\link{watercourses_15M}()},
+\code{\link{watercourses_5M}()}
+}
+\concept{BC layers}

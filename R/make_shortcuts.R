@@ -15,7 +15,7 @@
 #' This generates a `shortcuts.R` file in the `R` directory, with function definitions
 #' and roxygen blocks for each data object in `bcmaps`. This ensures that each
 #' data object can be accessed directly from `bcmaps` by a
-#' function such as `bc_bound()`, or `airzones("sp")`.
+#' function such as `bc_bound()`, or `airzones()`.
 #'
 #' Run this function each time you add a new data object.
 #'
@@ -25,6 +25,8 @@
 #' \dontrun{
 #' make_shortcuts()
 #' }
+#'
+#' @noRd
 #'
 #' @return TRUE (invisibly)
 make_shortcuts <- function(file = "R/shortcuts.R") {
@@ -63,7 +65,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#'
          roxygen_blocker#' @inheritParams bc_bound_hres
          roxygen_blocker#'
-         roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
+         roxygen_blocker#' @return The spatial layer of `{fn_name}` as an `sf` object.
          roxygen_blocker#'
          roxygen_blocker#' @source `bcdata::{make_bcdata_fn(fn_title)}`
          roxygen_blocker#'
@@ -74,15 +76,10 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' my_layer <- {fn_name}()
          roxygen_blocker#' }}
          roxygen_blocker#'
+         roxygen_blocker#' @family BC layers
          roxygen_blocker#' @export
-         {fn_name} <- function(class = deprecated(), ask = interactive(), force = FALSE) {{
-
-            if (lifecycle::is_present(class)) {{
-              deprecate_sp('bcmaps::{fn_name}(class)')
-              class <- match.arg(class, choices = c('sf', 'sp'))
-            }}
-
-            get_layer('{fn_name}', class = class, ask = ask, force = force)
+         {fn_name} <- function(ask = interactive(), force = FALSE) {{
+            get_layer('{fn_name}', ask = ask, force = force)
          }}
 
          ")
