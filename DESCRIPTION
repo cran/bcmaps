@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 2.1.0
+Version: 2.2.0
 Authors@R: c(
     person("Andy", "Teucher", , "andy.teucher@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7840-692X")),
@@ -13,7 +13,7 @@ Authors@R: c(
 Description: Various layers of B.C., including administrative boundaries,
     natural resource management boundaries, census boundaries etc. All
     layers are available in BC Albers
-    (<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area
+    (<https://spatialreference.org/ref/epsg/3005/>) equal-area
     projection, which is the B.C. government standard. The layers are
     sourced from the British Columbia and Canadian government under open
     licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>),
@@ -33,13 +33,13 @@ Suggests: future (>= 1.12.0), future.apply (>= 1.2.0), ggplot2 (>=
         0.6.3), testthat (>= 2.1.0), withr (>= 2.3)
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.0
 NeedsCompilation: no
-Packaged: 2023-10-17 21:17:43 UTC; andy
+Packaged: 2024-01-24 06:12:59 UTC; andy
 Author: Andy Teucher [aut, cre] (<https://orcid.org/0000-0002-7840-692X>),
   Sam Albers [aut, ctb] (<https://orcid.org/0000-0002-9270-7884>),
   Stephanie Hazlitt [aut, ctb] (<https://orcid.org/0000-0002-3161-2304>),
   Province of British Columbia [cph]
 Maintainer: Andy Teucher <andy.teucher@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-10-17 22:20:08 UTC
+Date/Publication: 2024-01-24 14:53:09 UTC
