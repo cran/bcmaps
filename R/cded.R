@@ -107,7 +107,7 @@ cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_interse
     tiles_50K = tiles_50K,
     .predicate = .predicate,
     dest_vrt = dest_vrt,
-    ask = interactive(),
+    ask = ask,
     check_tiles = check_tiles
   )
 
@@ -139,7 +139,7 @@ cded_terra <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_interse
     tiles_50K = tiles_50K,
     .predicate = .predicate,
     dest_vrt = dest_vrt,
-    ask = interactive(),
+    ask = ask,
     check_tiles = check_tiles
   )
 
@@ -183,7 +183,7 @@ cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_inters
     tiles_50K = tiles_50K,
     .predicate = .predicate,
     dest_vrt = dest_vrt,
-    ask = interactive(),
+    ask = ask,
     check_tiles = check_tiles
   )
 
@@ -343,7 +343,7 @@ build_vrt <- function(tif_files, dest_vrt, bbox = NULL) {
 #'
 #' @param vrt path to a .vrt file
 #' @param options options to pass to `gdalinfo`. See
-#'   [here](https://gdal.org/programs/gdalinfo.html) for
+#'   [here](https://gdal.org/en/stable/programs/gdalinfo.html) for
 #'   possible options.
 #' @param quiet suppress output to the console (default
 #'   `FALSE`)
